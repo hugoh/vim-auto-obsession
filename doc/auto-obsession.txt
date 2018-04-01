@@ -8,12 +8,17 @@ This is a very simple Vim plugin to automatically load and track a session,
 using tpope's Obsession plugin. You need to have |obsession| loaded.
 
 You can control whether you want it to kick in with |g:auto_obsession_active|
-(e.g., if you want to disable it when an argument is passed). By default, it
-uses `Session.vim` which is `:mksession`'s default. I personally like to use a
-single session file:
+(e.g., if you want to disable it when an argument is passed). Here's an
+example to disable it for git commit messages:
 >
-  let g:auto_obsession_session = '~/.vim/Session.vim'
-<
+  if argc() > 0 && fnamemodify(argv(0), ':t') == 'COMMIT_EDITMSG'
+    let g:auto_obsession_active = 0
+  endif
+>
+By default, it uses `Session.vim` which is `:mksession`'s default. I
+personally like to use a single session file:
+>
+  let g:auto_obsession_session = '~/.vim/Session.vim' <
 
 SETTINGS                                             *auto-obsession-settings*
 
