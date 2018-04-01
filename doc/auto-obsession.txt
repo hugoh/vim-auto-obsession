@@ -1,0 +1,35 @@
+*auto-obsession.txt*  Auto-load tpope's |obsession|
+
+Author:  Hugo Haas <hugoh@hugoh.net>
+Repo:    https://gitlab.com/hugoh/vim-auto-obsession
+License: MIT
+
+This is a very simple Vim plugin to automatically load and track a session,
+using tpope's Obsession plugin. You need to have |obsession| loaded.
+
+You can control whether you want it to kick in with |g:auto_obsession_active|
+(e.g., if you want to disable it when an argument is passed). By default, it
+uses `Session.vim` which is `:mksession`'s default. I personally like to use a
+single session file:
+>
+  let g:auto_obsession_session = '~/.vim/Session.vim'
+<
+
+SETTINGS                                             *auto-obsession-settings*
+
+                                                   *'g:auto_obsession_active'*   
+
+Enables loading and activating a session managed by Obsession on Vim startup.
+By default it is enabled.
+>
+  let g:auto_obsession_active = 1
+<
+                                                  *'g:auto_obsession_session'*   
+
+Specifies the name of the file storing the session information.
+By default it is Vim's default 'Session.vim'.
+>
+  let g:auto_obsession_session = 'Session.vim'
+<
+
+ vim:tw=78:et:ft=help:norl:
