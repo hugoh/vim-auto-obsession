@@ -1,5 +1,5 @@
 ""
-" @section Introduction, intro
+" @section Overview, overview
 " This is a very simple Vim plugin to automatically load and track a session,
 " using tpope's Obsession plugin. You need to have |obsession| loaded.
 "
