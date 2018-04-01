@@ -1,0 +1,10 @@
+{
+  "name": "auto-obsession",
+  "description": "Auto-load tpope's |obsession|",
+  "author": "Hugo Haas <hugoh@hugoh.net>",
+  "repository": {"type": "git", "url": "git://gitlab.com/hugoh/vim-auto-obsession"},
+  "dependencies": {
+    "obsession": {"type": "git", "url": "git://github.com/tpope/vim-obsession"}
+  }
+}
+

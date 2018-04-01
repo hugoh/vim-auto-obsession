@@ -1,41 +1,42 @@
-*auto-obsession.txt*  Auto-load tpope's |obsession|
+*auto-obsession.txt*	Auto-load tpope's |obsession|
+Hugo Haas <hugoh@hugoh.net>                                   *auto-obsession*
 
-Author:  Hugo Haas <hugoh@hugoh.net>
-Repo:    https://gitlab.com/hugoh/vim-auto-obsession
-License: MIT
+==============================================================================
+CONTENTS                                             *auto-obsession-contents*
+  1. Introduction.......................................|auto-obsession-intro|
+  2. Configuration.....................................|auto-obsession-config|
+
+==============================================================================
+INTRODUCTION                                            *auto-obsession-intro*
 
 This is a very simple Vim plugin to automatically load and track a session,
 using tpope's Obsession plugin. You need to have |obsession| loaded.
 
 You can control whether you want it to kick in with |g:auto_obsession_active|
-(e.g., if you want to disable it when an argument is passed). Here's an
-example to disable it for git commit messages:
->
-  if argc() > 0 && fnamemodify(argv(0), ':t') == 'COMMIT_EDITMSG'
-    let g:auto_obsession_active = 0
-  endif
->
+(e.g., if you want to disable it when an argument is passed). Alternatively,
+you can use |g:auto_obsession_exclude| for more fine-grained control.
+
 By default, it uses `Session.vim` which is `:mksession`'s default. I
 personally like to use a single session file:
 >
   let g:auto_obsession_session = '~/.vim/Session.vim'
 <
 
-SETTINGS                                             *auto-obsession-settings*
+==============================================================================
+CONFIGURATION                                          *auto-obsession-config*
 
-                                                   *'g:auto_obsession_active'*   
-
+                                                     *g:auto_obsession_active*
 Enables loading and activating a session managed by Obsession on Vim startup.
-By default it is enabled.
->
-  let g:auto_obsession_active = 1
-<
-                                                  *'g:auto_obsession_session'*   
+By default, it is enabled.
 
-Specifies the name of the file storing the session information.
-By default it is Vim's default 'Session.vim'.
->
-  let g:auto_obsession_session = 'Session.vim'
-<
+                                                    *g:auto_obsession_exclude*
+List of file patterns for which a session won't be loaded / started. By
+default, opening Vim for `git commit` messages will not use a session. Default
+value: [ '/\.git/COMMIT_EDITMSG$' ]
 
- vim:tw=78:et:ft=help:norl:
+                                                    *g:auto_obsession_session*
+Name of the session file. By default, `Session.vim` is used, which is
+`:mksession`'s default.
+
+
+vim:tw=78:ts=8:ft=help:norl:
