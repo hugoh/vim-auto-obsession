@@ -18,7 +18,8 @@ example to disable it for git commit messages:
 By default, it uses `Session.vim` which is `:mksession`'s default. I
 personally like to use a single session file:
 >
-  let g:auto_obsession_session = '~/.vim/Session.vim' <
+  let g:auto_obsession_session = '~/.vim/Session.vim'
+<
 
 SETTINGS                                             *auto-obsession-settings*
 
