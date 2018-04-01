@@ -51,7 +51,7 @@ function! s:AutoLoadObsession()
   let l:filename = expand(@%)
   let l:filename_full = fnamemodify(l:filename, ':p')
   for l:e in g:auto_obsession_exclude
-    if l:filename_full =~ l:e
+    if l:filename_full =~# l:e
       return
     endif
   endfor
