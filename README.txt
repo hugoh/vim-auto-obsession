@@ -1,1 +1,0 @@
-doc/auto-obsession.txt
