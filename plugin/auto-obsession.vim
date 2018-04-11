@@ -1,5 +1,5 @@
 ""
-" @section Overview, overview
+" @section Introduction, intro
 " This is a very simple Vim plugin to automatically load and track a session,
 " using tpope's Obsession plugin. You need to have |obsession| loaded.
 "
@@ -12,6 +12,7 @@
 " >
 "   let g:auto_obsession_session = '~/.vim/Session.vim'
 " <
+" @order intro config commands
 
 
 if exists('g:loaded_auto_obsession')
@@ -42,11 +43,7 @@ function! s:FindBuffer(filename)
   endif
 endfunction
 
-function! s:AutoLoadObsession()
-  " Deactivated?
-  if g:auto_obsession_active == 0
-    return
-  endif
+function! s:AutoObsession()
   " Exclusion?
   let l:filename = expand(@%)
   let l:filename_full = fnamemodify(l:filename, ':p')
@@ -64,6 +61,28 @@ function! s:AutoLoadObsession()
     exec 'Obsession ' . l:session_file
   endif
 endfunction
+
+function! s:AutoLoadObsession()
+  " Deactivated?
+  if g:auto_obsession_active == 0
+    return
+  endif
+  call s:AutoObsession()
+endfunction
+
+function! s:AutoObsessionWipe()
+  if !empty(get(g:, 'this_obsession'))
+    Obsession!
+  endif
+endfunction
+
+""
+" Either load or start session recording manually
+command! AutoObsession call s:AutoObsession()
+
+""
+" Stop session recording and wipe it
+command! AutoObsessionWipe call s:AutoObsessionWipe()
 
 augroup auto_obsession_group
   autocmd!
