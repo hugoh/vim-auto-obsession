@@ -5,6 +5,7 @@ Hugo Haas <hugoh@hugoh.net>                                   *auto-obsession*
 CONTENTS                                             *auto-obsession-contents*
   1. Introduction.......................................|auto-obsession-intro|
   2. Configuration.....................................|auto-obsession-config|
+  3. Commands........................................|auto-obsession-commands|
 
 ==============================================================================
 INTRODUCTION                                            *auto-obsession-intro*
@@ -37,6 +38,15 @@ value: [ '/\.git/COMMIT_EDITMSG$' ]
                                                     *g:auto_obsession_session*
 Name of the session file. By default, `Session.vim` is used, which is
 `:mksession`'s default.
+
+==============================================================================
+COMMANDS                                             *auto-obsession-commands*
+
+:AutoObsession                                                *:AutoObsession*
+  Either load or start session recording manually
+
+:AutoObsessionWipe                                        *:AutoObsessionWipe*
+  Stop session recording and wipe it
 
 
 vim:tw=78:ts=8:ft=help:norl:
